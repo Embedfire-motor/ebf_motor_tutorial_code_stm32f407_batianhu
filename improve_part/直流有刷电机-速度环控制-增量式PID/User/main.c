@@ -95,6 +95,8 @@ int main(void)
 			
 			while(1)
 			{
+				/* 接收数据处理 */
+				receiving_process();
 				/* 扫描KEY1 */
 				if( Key_Scan(KEY1_GPIO_PORT, KEY1_PIN) == KEY_ON)
 				{
@@ -126,7 +128,7 @@ int main(void)
 				}
 			}
     }
-#if 0
+#if 0//按键数量少,换向\禁用电机功能暂时不用,请使用PID调试助手调试
     /* 扫描KEY2 */
     if( Key_Scan(KEY2_GPIO_PORT, KEY2_PIN) == KEY_ON)
     {
