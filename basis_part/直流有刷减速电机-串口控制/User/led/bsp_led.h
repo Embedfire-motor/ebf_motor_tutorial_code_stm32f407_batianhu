@@ -7,18 +7,18 @@
 /*******************************************************/
 //R ºìÉ«µÆ
 #define LED1_PIN                  GPIO_PIN_6          
-#define LED1_GPIO_PORT            GPIOB                   
-#define LED1_GPIO_CLK_ENABLE()    __GPIOB_CLK_ENABLE()
+#define LED1_GPIO_PORT            GPIOF
+#define LED1_GPIO_CLK_ENABLE()    __GPIOF_CLK_ENABLE()
 
 //G ÂÌÉ«µÆ
 #define LED2_PIN                  GPIO_PIN_7         
-#define LED2_GPIO_PORT            GPIOB                     
-#define LED2_GPIO_CLK_ENABLE()    __GPIOB_CLK_ENABLE()
+#define LED2_GPIO_PORT            GPIOF                    
+#define LED2_GPIO_CLK_ENABLE()    __GPIOF_CLK_ENABLE()
 
 //B À¶É«µÆ
 #define LED3_PIN                  GPIO_PIN_8
-#define LED3_GPIO_PORT            GPIOB                     
-#define LED3_GPIO_CLK_ENABLE()    __GPIOB_CLK_ENABLE()
+#define LED3_GPIO_PORT            GPIOF                    
+#define LED3_GPIO_CLK_ENABLE()    __GPIOF_CLK_ENABLE()
 
 //µÆ
 #define LED4_PIN                  GPIO_PIN_3
