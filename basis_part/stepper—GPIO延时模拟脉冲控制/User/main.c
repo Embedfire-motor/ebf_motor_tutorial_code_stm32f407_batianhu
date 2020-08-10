@@ -37,7 +37,6 @@ int main(void)
   
   /* 初始化系统时钟为168MHz */
   SystemClock_Config();
-	HAL_InitTick(5);
   /*初始化USART 配置模式为 115200 8-N-1，中断接收*/
   DEBUG_USART_Config();
   printf("欢迎使用野火 电机开发板 步进电机 IO口模拟控制 例程\r\n");

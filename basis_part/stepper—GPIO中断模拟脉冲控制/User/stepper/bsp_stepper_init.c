@@ -101,7 +101,7 @@ void stepper_Init()
   HAL_GPIO_Init(MOTOR_EN_GPIO_PORT, &GPIO_InitStruct);  
 
   /*关掉使能*/
-  MOTOR_EN(OFF);
+  MOTOR_EN(LOW);
   /*初始化定时器*/
   TIMx_Configuration();
         

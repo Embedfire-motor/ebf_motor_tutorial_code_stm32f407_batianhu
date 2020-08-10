@@ -41,22 +41,22 @@ int main(void)
   /*初始化USART 配置模式为 115200 8-N-1，中断接收*/
   DEBUG_USART_Config();
   printf("欢迎使用野火 电机开发板 步进电机 IO口模拟控制 例程\r\n");
-  printf("按下按键2可修改旋转方向，按下按键3可修改使能\r\n");
-  /*按键初始化*/
-  Key_GPIO_Config(); 
-	/*LED初始化*/
-  LED_GPIO_Config();	
+  printf("按下按键1可修改旋转方向，按下按键2可修改使能\r\n");
+  /*LED初始化*/	
+	LED_GPIO_Config();
+  /*按键初始化*/	
+  Key_GPIO_Config();  
   /*步进电机初始化*/
   stepper_Init(); 
 
-  MOTOR_EN(0);
+  MOTOR_EN(HIGH);
 
   while(1)
   {     
     if( Key_Scan(KEY1_GPIO_PORT,KEY1_PIN) == KEY_ON  )
     {
-      // LED2 取反    
-      LED2_TOGGLE;
+      // LED1 取反    
+      LED1_TOGGLE;
       
       /*改变方向*/
       dir_val=(++i % 2) ? CW : CCW;
@@ -64,8 +64,8 @@ int main(void)
     }
     if( Key_Scan(KEY2_GPIO_PORT,KEY2_PIN) == KEY_ON  )
     {
-      // LED1 取反    
-      LED1_TOGGLE;
+      // LED2 取反    
+      LED2_TOGGLE;
 
       /*改变使能*/
       en_val=(++j % 2) ? CW : CCW;
