@@ -22,7 +22,7 @@
 #include "./delay/core_delay.h"
 #include "./stepper/bsp_stepper_init.h"
 #include "./key/bsp_key.h" 
-
+#include "./led/bsp_led.h"   
 /**
   * @brief  主函数
   * @param  无
@@ -43,6 +43,8 @@ int main(void)
   printf("按下按键1可修改旋转方向、按下按键2可修改旋转角度\r\n");
   /*按键初始化*/
   Key_GPIO_Config();
+  /*LED初始化*/	
+	LED_GPIO_Config();
   /*步进电机初始化*/
   stepper_Init();
   /*开启步进电机使能*/
