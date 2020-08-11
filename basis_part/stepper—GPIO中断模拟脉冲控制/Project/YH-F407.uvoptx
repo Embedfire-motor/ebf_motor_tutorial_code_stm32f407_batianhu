@@ -1158,7 +1158,6 @@
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
-<<<<<<< HEAD
     <File>
       <GroupNumber>4</GroupNumber>
       <FileNumber>76</FileNumber>
@@ -1171,8 +1170,6 @@
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
-=======
->>>>>>> 6d0cbd76eed748919b7e4c43885c76194b020775
   </Group>
 
   <Group>
@@ -1183,11 +1180,7 @@
     <RteFlg>0</RteFlg>
     <File>
       <GroupNumber>5</GroupNumber>
-<<<<<<< HEAD
       <FileNumber>77</FileNumber>
-=======
-      <FileNumber>76</FileNumber>
->>>>>>> 6d0cbd76eed748919b7e4c43885c76194b020775
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
