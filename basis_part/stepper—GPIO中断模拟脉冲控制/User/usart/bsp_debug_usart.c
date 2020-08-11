@@ -86,8 +86,13 @@ void Usart_SendString(uint8_t *str)
   unsigned int k=0;
   do 
   {
+<<<<<<< HEAD
     HAL_UART_Transmit(&UartHandle,(uint8_t *)(str + k) ,1,1000);
     k++;
+=======
+      HAL_UART_Transmit(&UartHandle,(uint8_t *)(str + k) ,1,1000);
+      k++;
+>>>>>>> 6d0cbd76eed748919b7e4c43885c76194b020775
   } while(*(str + k)!='\0');
   
 }

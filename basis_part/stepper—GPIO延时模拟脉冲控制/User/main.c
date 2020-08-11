@@ -22,7 +22,11 @@
 #include "./delay/core_delay.h"
 #include "./stepper/bsp_stepper_init.h"
 #include "./key/bsp_key.h" 
+<<<<<<< HEAD
 #include "./led/bsp_led.h"   
+=======
+
+>>>>>>> 6d0cbd76eed748919b7e4c43885c76194b020775
 /**
   * @brief  主函数
   * @param  无
@@ -37,14 +41,21 @@ int main(void)
   
   /* 初始化系统时钟为168MHz */
   SystemClock_Config();
+<<<<<<< HEAD
+=======
+	HAL_InitTick(5);
+>>>>>>> 6d0cbd76eed748919b7e4c43885c76194b020775
   /*初始化USART 配置模式为 115200 8-N-1，中断接收*/
   DEBUG_USART_Config();
   printf("欢迎使用野火 电机开发板 步进电机 IO口模拟控制 例程\r\n");
   printf("按下按键1可修改旋转方向、按下按键2可修改旋转角度\r\n");
   /*按键初始化*/
   Key_GPIO_Config();
+<<<<<<< HEAD
   /*LED初始化*/	
 	LED_GPIO_Config();
+=======
+>>>>>>> 6d0cbd76eed748919b7e4c43885c76194b020775
   /*步进电机初始化*/
   stepper_Init();
   /*开启步进电机使能*/

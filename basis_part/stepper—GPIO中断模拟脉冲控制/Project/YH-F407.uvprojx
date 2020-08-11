@@ -773,11 +773,14 @@
               <FileType>1</FileType>
               <FilePath>..\User\key\bsp_key.c</FilePath>
             </File>
+<<<<<<< HEAD
             <File>
               <FileName>bsp_led.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\User\led\bsp_led.c</FilePath>
             </File>
+=======
+>>>>>>> 6d0cbd76eed748919b7e4c43885c76194b020775
           </Files>
         </Group>
         <Group>

@@ -17,12 +17,20 @@
 
 #define DEBUG_USART_RX_GPIO_PORT                GPIOA
 #define DEBUG_USART_RX_GPIO_CLK_ENABLE()        __GPIOA_CLK_ENABLE()
+<<<<<<< HEAD
 #define DEBUG_USART_RX_PIN                      GPIO_PIN_10
+=======
+#define DEBUG_USART_RX_PIN                      GPIO_PIN_9
+>>>>>>> 6d0cbd76eed748919b7e4c43885c76194b020775
 #define DEBUG_USART_RX_AF                       GPIO_AF7_USART1
 
 #define DEBUG_USART_TX_GPIO_PORT                GPIOA
 #define DEBUG_USART_TX_GPIO_CLK_ENABLE()        __GPIOA_CLK_ENABLE()
+<<<<<<< HEAD
 #define DEBUG_USART_TX_PIN                      GPIO_PIN_9
+=======
+#define DEBUG_USART_TX_PIN                      GPIO_PIN_10
+>>>>>>> 6d0cbd76eed748919b7e4c43885c76194b020775
 #define DEBUG_USART_TX_AF                       GPIO_AF7_USART1
 
 #define DEBUG_USART_IRQHandler                  USART1_IRQHandler
