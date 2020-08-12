@@ -52,7 +52,7 @@ void Circular_InterPolation_CW(int32_t start_x, int32_t start_y, int32_t stop_x,
   /* 所需脉冲数是从起点到终点的脉冲数之和 */
   interpolation_para.endpoint_pulse = abs(stop_x - start_x) + abs(stop_y - start_y);
   
-  /* 第三象限逆圆，x轴逆转，y轴正转 */
+  /* 第三象限顺圆，x轴逆转，y轴正转 */
   interpolation_para.dir_x = CCW;
   interpolation_para.dir_y = CW;
   MOTOR_DIR(step_motor[x_axis].dir_port, step_motor[x_axis].dir_pin, CCW);
