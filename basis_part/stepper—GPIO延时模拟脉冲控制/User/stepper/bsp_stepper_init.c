@@ -40,11 +40,7 @@ void stepper_turn(int tim,float angle,float subdivide,uint8_t dir)
     MOTOR_DIR(CCW);
   }
   /*开使能*/
-<<<<<<< HEAD
   MOTOR_EN(HIGH);
-=======
-  MOTOR_EN(ON);
->>>>>>> 6d0cbd76eed748919b7e4c43885c76194b020775
   /*模拟方波*/
   for(i=0;i<n;i++)
   {   
@@ -54,11 +50,7 @@ void stepper_turn(int tim,float angle,float subdivide,uint8_t dir)
     delay_us(tim/2);
   }
   /*关使能*/
-<<<<<<< HEAD
   MOTOR_EN(LOW);
-=======
-  MOTOR_EN(OFF);
->>>>>>> 6d0cbd76eed748919b7e4c43885c76194b020775
 }
 
 
@@ -99,11 +91,7 @@ void stepper_Init()
   HAL_GPIO_Init(MOTOR_EN_GPIO_PORT, &GPIO_InitStruct);  
 
   /*关掉使能*/
-<<<<<<< HEAD
   MOTOR_EN(LOW);
-=======
-  MOTOR_EN(OFF);
->>>>>>> 6d0cbd76eed748919b7e4c43885c76194b020775
 
 }
 
