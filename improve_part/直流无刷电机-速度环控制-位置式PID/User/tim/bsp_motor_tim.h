@@ -30,43 +30,43 @@ typedef struct
 	 设定定时器频率为=TIMxCLK/(PWM_PRESCALER_COUNT+1)/PWM_PERIOD_COUNT = 15KHz*/
 #define PWM_PRESCALER_COUNT     (2)
 
-/* TIM8通道1输出引脚 */
+/* TIM1通道1输出引脚 */
 #define MOTOR_OCPWM1_PIN           		    GPIO_PIN_9
 #define MOTOR_OCPWM1_GPIO_PORT     		    GPIOE
 #define MOTOR_OCPWM1_GPIO_CLK_ENABLE() 	  __GPIOE_CLK_ENABLE()
 #define MOTOR_OCPWM1_AF					          GPIO_AF1_TIM1
 
-/* TIM8通道2输出引脚 */
+/* TIM1通道2输出引脚 */
 #define MOTOR_OCPWM2_PIN           		    GPIO_PIN_11
 #define MOTOR_OCPWM2_GPIO_PORT     		    GPIOE
 #define MOTOR_OCPWM2_GPIO_CLK_ENABLE() 	  __GPIOE_CLK_ENABLE()
 #define MOTOR_OCPWM2_AF					          GPIO_AF1_TIM1
 
-/* TIM8通道3输出引脚 */
+/* TIM1通道3输出引脚 */
 #define MOTOR_OCPWM3_PIN           		    GPIO_PIN_13
 #define MOTOR_OCPWM3_GPIO_PORT     		    GPIOE
 #define MOTOR_OCPWM3_GPIO_CLK_ENABLE() 	  __GPIOE_CLK_ENABLE()
 #define MOTOR_OCPWM3_AF					          GPIO_AF1_TIM1
 
-/* TIM8通道1互补输出引脚 */
+/* TIM1通道1互补输出引脚 */
 #define MOTOR_OCNPWM1_PIN            		  GPIO_PIN_13
 #define MOTOR_OCNPWM1_GPIO_PORT      		  GPIOB
 #define MOTOR_OCNPWM1_GPIO_CLK_ENABLE()	  __GPIOB_CLK_ENABLE()
 #define MOTOR_OCNPWM1_AF					        GPIO_AF1_TIM1
 
-/* TIM8通道2互补输出引脚 */
+/* TIM1通道2互补输出引脚 */
 #define MOTOR_OCNPWM2_PIN            		  GPIO_PIN_14
 #define MOTOR_OCNPWM2_GPIO_PORT      		  GPIOB
 #define MOTOR_OCNPWM2_GPIO_CLK_ENABLE()	  __GPIOB_CLK_ENABLE()
 #define MOTOR_OCNPWM2_AF					        GPIO_AF1_TIM1
 
-/* TIM8通道3互补输出引脚 */
+/* TIM1通道3互补输出引脚 */
 #define MOTOR_OCNPWM3_PIN            		  GPIO_PIN_15
 #define MOTOR_OCNPWM3_GPIO_PORT      		  GPIOB
 #define MOTOR_OCNPWM3_GPIO_CLK_ENABLE()	  __GPIOB_CLK_ENABLE()
 #define MOTOR_OCNPWM3_AF					        GPIO_AF1_TIM1
 
-#define TIM_COM_TS_ITRx                   TIM_TS_ITR3    // 内部触发配置(TIM8->ITR3->TIM5)
+#define TIM_COM_TS_ITRx                   TIM_TS_ITR3    // 内部触发配置(TIM1->ITR3->TIM3)
 
 /* 霍尔传感器定时器 */
 #define HALL_TIM           				      TIM3
@@ -84,19 +84,19 @@ extern TIM_HandleTypeDef htimx_hall;
    周期 T = 100ms */
 #define HALL_PRESCALER_COUNT     (128)
 
-/* TIM5 通道 1 引脚 */
+/* TIM3 通道 1 引脚 */
 #define HALL_INPUT1_PIN           		    GPIO_PIN_6
 #define HALL_INPUT1_GPIO_PORT     		    GPIOC
 #define HALL_INPUT1_GPIO_CLK_ENABLE() 	  __GPIOC_CLK_ENABLE()
 #define HALL_INPUT1_AF					          GPIO_AF2_TIM3
 
-/* TIM5 通道 2 引脚 */
+/* TIM3 通道 2 引脚 */
 #define HALL_INPUT2_PIN           		    GPIO_PIN_7
 #define HALL_INPUT2_GPIO_PORT     		    GPIOC
 #define HALL_INPUT2_GPIO_CLK_ENABLE() 	  __GPIOC_CLK_ENABLE()
 #define HALL_INPUT2_AF					          GPIO_AF2_TIM3
 
-/* TIM5 通道 3 引脚 */
+/* TIM3 通道 3 引脚 */
 #define HALL_INPUT3_PIN           		    GPIO_PIN_8
 #define HALL_INPUT3_GPIO_PORT     		    GPIOC
 #define HALL_INPUT3_GPIO_CLK_ENABLE() 	  __GPIOC_CLK_ENABLE()
