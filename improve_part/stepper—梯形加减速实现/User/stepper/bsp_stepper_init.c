@@ -98,11 +98,11 @@ void TIM_PWMOUTPUT_Config(void)
 	TIM_TimeBaseStructure.Instance = MOTOR_PUL_TIM;    
 	/* 累计 TIM_Period个后产生一个更新或者中断*/		
 	//当定时器从0计数到10000，即为10000次，为一个定时周期
-	TIM_TimeBaseStructure.Init.Period = TIM_PERIOD; 
+	TIM_TimeBaseStructure.Init.Period = TIM_PERIOD-1; 
 	// 通用控制定时器时钟源TIMxCLK = HCLK/2	=	84MHz 
 	// 高级控制定时器时钟源TIMxCLK = HCLK		=	168MHz 
 	// 设定定时器频率为=TIMxCLK/(TIM_Prescaler+1)
-	TIM_TimeBaseStructure.Init.Prescaler = TIM_PRESCALER;                
+	TIM_TimeBaseStructure.Init.Prescaler = TIM_PRESCALER-1;                
 
 	/*计数方式*/
 	TIM_TimeBaseStructure.Init.CounterMode = TIM_COUNTERMODE_UP;            
@@ -127,13 +127,6 @@ void TIM_PWMOUTPUT_Config(void)
 	/*互补通道设置*/
 	TIM_OCInitStructure.OCNIdleState = TIM_OCNIDLESTATE_RESET; 
 	HAL_TIM_OC_ConfigChannel(&TIM_TimeBaseStructure, &TIM_OCInitStructure, MOTOR_PUL_CHANNEL_x);
-
-	/* 确定定时器 */
-	HAL_TIM_Base_Start(&TIM_TimeBaseStructure);
-	/* 启动比较输出并使能中断 */
-	HAL_TIM_OC_Start_IT(&TIM_TimeBaseStructure,MOTOR_PUL_CHANNEL_x);
-	/*使能比较通道*/
-	TIM_CCxChannelCmd(MOTOR_PUL_TIM,MOTOR_PUL_CHANNEL_x,TIM_CCx_ENABLE);
 
 }
 
