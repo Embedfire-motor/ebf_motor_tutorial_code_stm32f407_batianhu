@@ -30,14 +30,9 @@ static void sd_gpio_config(void);
   */
 void bldcm_init(void)
 {
-	printf("4");
   TIMx_Configuration();    // 电机控制定时器，引脚初始化
-	printf("1");
   hall_tim_config();       // 霍尔传感器初始化
-		printf("2");
   sd_gpio_config();        // sd 引脚初始化
-	
-		printf("3");
 }
 
 /**

@@ -38,10 +38,10 @@ void Delay(__IO uint32_t nCount)	 //简单的延时函数
   */
 int main(void) 
 {
-  int16_t target_speed = 1500;
+  int16_t target_speed = 1200;
   uint8_t i = 0;
   
-	/* 初始化系统时钟为180MHz */
+	/* 初始化系统时钟为168MHz */
 	SystemClock_Config();
   
   /* HAL 库初始化 */
@@ -69,7 +69,8 @@ int main(void)
   
   /* 设置目标速度 */
   set_pid_target(target_speed);
-
+	
+	
 #if defined(PID_ASSISTANT_EN)
   set_computer_value(SEND_STOP_CMD, CURVES_CH1, NULL, 0);                // 同步上位机的启动按钮状态
   set_computer_value(SEND_TARGET_CMD, CURVES_CH1, &target_speed, 1);     // 给通道 1 发送目标值
@@ -77,52 +78,31 @@ int main(void)
 	
 	while(1)
 	{
-
+    /* 接收数据处理 */
+    receiving_process();
+    
     /* 扫描KEY1 */
-    if( Key_Scan(KEY1_GPIO_PORT, KEY1_PIN) == KEY_ON)
+    if( Key_Scan(KEY1_GPIO_PORT,KEY1_PIN) == KEY_ON  )
     {
-     /* 使能电机 */
+      /* 使能电机 */
       set_bldcm_enable();
       
     #if defined(PID_ASSISTANT_EN) 
       set_computer_value(SEND_START_CMD, CURVES_CH1, NULL, 0);               // 同步上位机的启动按钮状态
-		#endif
-			while(1)
-			{
-				/* 接收数据处理 */
-				receiving_process();
-				/* 扫描KEY1 */
-				if( Key_Scan(KEY1_GPIO_PORT, KEY1_PIN) == KEY_ON)
-				{
-								 /* 增大占空比 */
-							target_speed += 100;
-							
-							if(target_speed > 3500)
-								target_speed = 3500;
-							
-							set_pid_target(target_speed);
-							
-						#if defined(PID_ASSISTANT_EN)
-							set_computer_value(SEND_TARGET_CMD, CURVES_CH1,  &target_speed, 1);     // 给通道 1 发送目标值
-						#endif
-				}
-				 /* 扫描KEY2 */
-						if( Key_Scan(KEY2_GPIO_PORT, KEY2_PIN) == KEY_ON)
-						{
-							target_speed -= 100;
-
-							if(target_speed < 300)
-								target_speed = 300;
-							
-							set_pid_target(target_speed);
-							
-						#if defined(PID_ASSISTANT_EN)
-							set_computer_value(SEND_TARGET_CMD, CURVES_CH1,  &target_speed, 1);     // 给通道 1 发送目标值
-						#endif
-						}
-				}
-			}
+    #endif
     }
+    
+    /* 扫描KEY2 */
+    if( Key_Scan(KEY2_GPIO_PORT,KEY2_PIN) == KEY_ON  )
+    {
+      /* 停止电机 */
+      set_bldcm_disable();
+      
+    #if defined(PID_ASSISTANT_EN) 
+      set_computer_value(SEND_STOP_CMD, CURVES_CH1, NULL, 0);               // 同步上位机的启动按钮状态
+    #endif
+    }
+	}
 }
 
 /**

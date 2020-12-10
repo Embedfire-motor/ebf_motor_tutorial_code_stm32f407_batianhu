@@ -6,24 +6,24 @@
 //引脚定义
 /*******************************************************/
 //R 红色灯
-#define LED1_PIN                  GPIO_PIN_15                
-#define LED1_GPIO_PORT            GPIOA                     
-#define LED1_GPIO_CLK_ENABLE()    __GPIOA_CLK_ENABLE()
+#define LED1_PIN                  GPIO_PIN_6          
+#define LED1_GPIO_PORT            GPIOF
+#define LED1_GPIO_CLK_ENABLE()    __GPIOF_CLK_ENABLE()
 
 //G 绿色灯
-#define LED2_PIN                  GPIO_PIN_2                 
-#define LED2_GPIO_PORT            GPIOE                      
-#define LED2_GPIO_CLK_ENABLE()    __GPIOE_CLK_ENABLE()
+#define LED2_PIN                  GPIO_PIN_7         
+#define LED2_GPIO_PORT            GPIOF                    
+#define LED2_GPIO_CLK_ENABLE()    __GPIOF_CLK_ENABLE()
 
 //B 蓝色灯
-#define LED3_PIN                  GPIO_PIN_15
-#define LED3_GPIO_PORT            GPIOG                      
-#define LED3_GPIO_CLK_ENABLE()    __GPIOG_CLK_ENABLE()
+#define LED3_PIN                  GPIO_PIN_8
+#define LED3_GPIO_PORT            GPIOF                    
+#define LED3_GPIO_CLK_ENABLE()    __GPIOF_CLK_ENABLE()
 
 //灯
-#define LED4_PIN                  GPIO_PIN_8
-#define LED4_GPIO_PORT            GPIOB                      
-#define LED4_GPIO_CLK_ENABLE()    __GPIOB_CLK_ENABLE()
+#define LED4_PIN                  GPIO_PIN_3
+#define LED4_GPIO_PORT            GPIOC              
+#define LED4_GPIO_CLK_ENABLE()    __GPIOC_CLK_ENABLE()
 
 
 /************************************************************/

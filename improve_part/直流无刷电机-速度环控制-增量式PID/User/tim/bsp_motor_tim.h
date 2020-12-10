@@ -6,12 +6,12 @@
 
 /* 电机控旋转实现结构体 */
 
-#define SPEED_FILTER_NUM      30    // 速度滤波次数
+#define SPEED_FILTER_NUM      10    // 速度滤波次数
 
 typedef struct
 {
   int32_t timeout;            // 定时器更新计数
-  float speed;                // 电机速度 rps（转/秒）
+  float speed;                // 电机速度 rps（转/分钟）
   int32_t enable_flag;        // 电机使能标志
   int32_t speed_group[SPEED_FILTER_NUM];
 }motor_rotate_t;
@@ -72,31 +72,30 @@ typedef struct
 #define HALL_TIM           				      TIM3
 #define HALL_TIM_CLK_ENABLE()  			    __TIM3_CLK_ENABLE()
 
-
 extern TIM_HandleTypeDef htimx_hall;
 
 /* 累计 TIM_Period个后产生一个更新或者中断		
 	当定时器从0计数到4999，即为5000次，为一个定时周期 */
 #define HALL_PERIOD_COUNT     (0xFFFF)
 
-/* 高级控制定时器时钟源TIMxCLK = HCLK / 2 = 84MHz
+/* 通用控制定时器时钟源TIMxCLK = HCLK / 2 = 84MHz
 	 设定定时器频率为 = TIMxCLK / (PWM_PRESCALER_COUNT + 1) / PWM_PERIOD_COUNT = 10.01Hz
    周期 T = 100ms */
 #define HALL_PRESCALER_COUNT     (128)
 
-/* TIM5 通道 1 引脚 */
+/* TIM3 通道 1 引脚 */
 #define HALL_INPUT1_PIN           		    GPIO_PIN_6
 #define HALL_INPUT1_GPIO_PORT     		    GPIOC
 #define HALL_INPUT1_GPIO_CLK_ENABLE() 	  __GPIOC_CLK_ENABLE()
 #define HALL_INPUT1_AF					          GPIO_AF2_TIM3
 
-/* TIM5 通道 2 引脚 */
+/* TIM3 通道 2 引脚 */
 #define HALL_INPUT2_PIN           		    GPIO_PIN_7
 #define HALL_INPUT2_GPIO_PORT     		    GPIOC
 #define HALL_INPUT2_GPIO_CLK_ENABLE() 	  __GPIOC_CLK_ENABLE()
 #define HALL_INPUT2_AF					          GPIO_AF2_TIM3
 
-/* TIM5 通道 3 引脚 */
+/* TIM3 通道 3 引脚 */
 #define HALL_INPUT3_PIN           		    GPIO_PIN_8
 #define HALL_INPUT3_GPIO_PORT     		    GPIOC
 #define HALL_INPUT3_GPIO_CLK_ENABLE() 	  __GPIOC_CLK_ENABLE()
@@ -104,7 +103,6 @@ extern TIM_HandleTypeDef htimx_hall;
 
 #define HALL_TIM_IRQn                    TIM3_IRQn
 #define HALL_TIM_IRQHandler              TIM3_IRQHandler
-
 extern TIM_HandleTypeDef TIM_TimeBaseStructure;
 
 void PWM_TIMx_Configuration(void);
