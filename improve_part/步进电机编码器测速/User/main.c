@@ -75,7 +75,7 @@ int main(void)
     {
       MOTOR_EN_TOGGLE;
     }
-    /* 扫描KEY3，改变方向 */
+    /* 扫描KEY2，改变方向 */
     if(Key_Scan(KEY2_GPIO_PORT,KEY2_PIN) == KEY_ON)
     {
       static int j = 0;
